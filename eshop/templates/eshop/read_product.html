@@ -1,0 +1,28 @@
+{% extends 'eshop/base.html' %}
+
+{% block title %}Product view - {{ product.name }}{% endblock %}
+
+{% block content %}
+    <div class="container p-5">
+    {% if product %}
+    <div class="card" style="width: 18rem;">
+        {% if product.img %}
+            <img src="{{ MEDIA_URL }}{{ product.img }}" class="card-img-top" alt="...">
+        {% else %}
+            <img src="/static/img/no_image_available.jpg" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">Product {{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Price: {{ product.price }}</li>
+          <li class="list-group-item">QTY: {{ product.qty }}</li>
+          <li class="list-group-item">Created at: {{ product.created_at }}</li>
+        </ul>
+      </div>
+    {% else %}
+        <h1>No product with id={{ product_id }} available.</h1>
+    {% endif %}
+    </div>
+{% endblock %}

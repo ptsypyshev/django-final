@@ -1,0 +1,6 @@
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    min-width: 100px;
+    text-align: left;
+}

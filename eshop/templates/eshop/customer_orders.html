@@ -1,0 +1,64 @@
+{% extends 'eshop/base.html' %}
+
+{% block title %}Orders - {{ customer.name }}{% endblock %}
+
+{% block content %}
+    <h1>Сustomer {{ customer.name }} ordered next products:</h1>
+    <h2>1. For the last week</h2>
+    {% if products.week %}
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Order Date</th>
+            </tr>
+            {% for product in products.week %}
+            <tr>
+                <td>{{ product.0 }}</td>
+                <td>{{ product.1 }}</td>
+                <td>{{ product.2 }}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+    {% else %}
+        <p>No products are ordered.<p>
+    {% endif %}
+    <h2>2. For the last month</h2>
+    {% if products.month %}
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Order Date</th>
+            </tr>
+            {% for product in products.month %}
+            <tr>
+                <td>{{ product.0 }}</td>
+                <td>{{ product.1 }}</td>
+                <td>{{ product.2 }}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+    {% else %}
+        <p>No products are ordered.<p>
+    {% endif %}
+    <h2>3. For the last year</h2>
+    {% if products.year %}
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Order Date</th>
+            </tr>
+            {% for product in products.year %}
+            <tr>
+                <td>{{ product.0 }}</td>
+                <td>{{ product.1 }}</td>
+                <td>{{ product.2 }}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+    {% else %}
+        <p>No products are ordered.<p>
+    {% endif %}
+{% endblock %}
