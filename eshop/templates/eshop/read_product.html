@@ -26,10 +26,10 @@
     {% endif %}
     <p>
     {% if previous_product_id %}
-      <a href="{% url 'read_product' {{ previous_product_id }} %}">prev</a>
+      <a href="{% url 'read_product' previous_product_id %}">prev</a>
     {% endif %}
     {% if next_product_id %}
-      <a href="{% url 'read_product' {{ next_product_id }} %}">next</a>
+      <a href="{% url 'read_product' next_product_id %}">next</a>
     {% endif %}
     </p>
     <p>Go to <a href="{% url 'index' %}">main</a> page</p>
