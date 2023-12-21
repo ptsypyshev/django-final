@@ -18,7 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['customer', 'total_price', 'created_at']
     list_filter = ['customer', 'total_price', 'created_at']
     search_fields = ['total_price']
-    readonly_fields = ['created_at']
+    # readonly_fields = ['created_at']
     fieldsets = (
         (None, {
             "fields": (
