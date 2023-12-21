@@ -30,8 +30,8 @@ class OrderedProducts(View):
         context = {
             "customer": customer,
             "products": products,
-            "previous_product_id": previous_customer_id, 
-            "next_product_id":next_customer_id
+            "previous_customer_id": previous_customer_id, 
+            "next_customer_id": next_customer_id
         }
 
         return render(request, "eshop/customer_orders.html", context)
