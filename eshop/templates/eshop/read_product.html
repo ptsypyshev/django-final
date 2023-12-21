@@ -24,5 +24,6 @@
     {% else %}
         <h1>No product with id={{ product_id }} available.</h1>
     {% endif %}
+    <p>Go to <a href="{% url 'index' %}">main</a> page</p>
     </div>
 {% endblock %}
