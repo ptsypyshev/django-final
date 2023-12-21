@@ -61,4 +61,13 @@
     {% else %}
         <p>No products are ordered.<p>
     {% endif %}
+    <p>
+        {% if previous_customer_id %}
+          <a href="{% url 'ordered_products' {{ previous_customer_id }} %}">prev</a>
+        {% endif %}
+        {% if next_customer_id %}
+          <a href="{% url 'ordered_products' {{ next_customer_id }} %}">next</a>
+        {% endif %}
+        </p>
+        <p>Go to <a href="{% url 'index' %}">main</a> page</p>
 {% endblock %}
