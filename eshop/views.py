@@ -78,6 +78,4 @@ class ReadProduct(View):
 
 class Index(View):
     def get(self, request):
-        # product = Product.objects.filter(pk=product_id).first()
-        # context = {"product": product, "product_id": product_id}
         return render(request, "eshop/index.html")
