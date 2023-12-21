@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Customer(models.Model):
@@ -18,7 +19,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     qty = models.IntegerField()
     img = models.CharField(max_length=255, default='')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
         return f'Product name: {self.name}, description: {self.description}, price: {self.price}, qty: {self.qty}, added at: {self.created_at}'
