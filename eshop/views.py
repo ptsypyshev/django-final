@@ -24,7 +24,15 @@ class OrderedProducts(View):
             "year": OrderedProducts.get_products(last_year_orders),
         }
 
-        context = {"customer": customer, "products": products}
+        previous_customer_id = customer_id - 1 if customer_id > 1 else 0
+        next_customer_id = customer_id + 1
+
+        context = {
+            "customer": customer,
+            "products": products,
+            "previous_product_id": previous_customer_id, 
+            "next_product_id":next_customer_id
+        }
 
         return render(request, "eshop/customer_orders.html", context)
     
@@ -73,7 +81,14 @@ class CreateProduct(View):
 class ReadProduct(View):
     def get(self, request, product_id):
         product = Product.objects.filter(pk=product_id).first()
-        context = {"product": product, "product_id": product_id}
+        previous_product_id = product_id - 1 if product_id > 1 else 0
+        next_product_id = product_id + 1
+        context = {
+            "product": product,
+            "product_id": product_id,
+            "previous_product_id": previous_product_id, 
+            "next_product_id":next_product_id
+        }
         return render(request, "eshop/read_product.html", context, status=200 if product else 404)
 
 class Index(View):
